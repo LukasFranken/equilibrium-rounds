@@ -17,7 +17,7 @@ namespace Equilibrium
     {
         private const string ModId = "de.instinct.equilibrium";
         private const string ModName = "Equilibrium";
-        public const string Version = "0.0.3";
+        public const string Version = "0.0.4";
 
         public const string ModInitials = "EQ";
         public static Equilibrium instance { get; private set; }
