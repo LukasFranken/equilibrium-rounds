@@ -1,0 +1,10 @@
+{
+    "name": "Equilibrium",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/equilibrium_rounds",
+    "description": "Contains 4 Cards with a unique effect on gameplay. No boring stat shuffles.",
+    "dependencies": [
+        "willuwontu-BlockForcePatch-1.0.1",
+		"Root-GunBodyRecoilPatch-0.1.0"
+    ]
+}
