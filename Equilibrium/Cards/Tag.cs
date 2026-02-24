@@ -1,47 +1,46 @@
 ﻿using Equilibrium.Component;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 
 namespace Equilibrium.Cards
 {
-    class Metamorphosis : CustomCard
+    class Tag : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            
+            gun.projectileSpeed = 1.5f;
+            statModifiers.health = 0.8f;
+            block.cdAdd = -0.25f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetComponent<DamageStackMono>();
+            var mono = player.gameObject.GetComponent<TagMono>();
             if (mono == null)
             {
-                mono = player.gameObject.AddComponent<DamageStackMono>();
+                mono = player.gameObject.AddComponent<TagMono>();
             }
-            mono.AddIncrement();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetComponent<DamageStackMono>();
+            var mono = player.gameObject.GetComponent<TagMono>();
             if (mono != null)
             {
+                mono.ResetTag();
                 mono.enabled = false;
                 Destroy(mono);
             }
         }
 
-
         protected override string GetTitle()
         {
-            return "Metamorphosis";
+            return "Tag";
         }
         protected override string GetDescription()
         {
-            return "Every shot gets stronger...\nuntil its over";
+            return "Block to throw a Tag\nBlock again to teleport to the Tag";
         }
         protected override GameObject GetCardArt()
         {
@@ -57,23 +56,30 @@ namespace Equilibrium.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Starting Damage",
-                    amount = "20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    positive = true,
+                    stat = "Projectile Speed",
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Per Shot",
-                    amount = "+3%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    stat = "Block Cooldown",
+                    amount = "-25%",
+                    simepleAmount = CardInfoStat.SimpleAmount.lower
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Health",
+                    amount = "-20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.PoisonGreen;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {

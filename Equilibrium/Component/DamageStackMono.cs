@@ -40,7 +40,6 @@ namespace Equilibrium.Component
             var proj = bullet.GetComponent<ProjectileHit>();
             if (proj != null)
                 proj.damage *= currentMultiplier;
-
             currentMultiplier += (increment * incrementIncrement);
         }
 

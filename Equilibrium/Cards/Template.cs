@@ -61,7 +61,7 @@ namespace Equilibrium.Cards
         }
         public override string GetModName()
         {
-            return "ModName";
+            return Equilibrium.ModInitials;
         }
     }
 }

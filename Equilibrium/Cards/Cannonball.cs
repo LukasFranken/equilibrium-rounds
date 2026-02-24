@@ -17,10 +17,10 @@ namespace Equilibrium.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.damage = 2.5f;
-            gun.reloadTime = 2f;
+            gun.damage = 3f;
+            gun.reloadTime = 2.2f;
             gun.projectileSpeed = 2f;
-            gun.bodyRecoil = 600f;
+            gun.bodyRecoil = 700f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -55,7 +55,7 @@ namespace Equilibrium.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+150%",
+                    amount = "+200%",
                     simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },
                 new CardInfoStat()
@@ -75,8 +75,8 @@ namespace Equilibrium.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Reload Time",
-                    amount = "+100%",
+                    stat = "Reload Speed",
+                    amount = "-60%",
                     simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },
                 new CardInfoStat()

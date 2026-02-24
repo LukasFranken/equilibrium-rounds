@@ -12,8 +12,7 @@ namespace Equilibrium.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             gun.dontAllowAutoFire = false;
-            gun.damage = 0.2f;
-            gun.projectileSpeed = 2f;
+            gun.damage = 0.3f;
             gun.reloadTime = 3f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -68,16 +67,9 @@ namespace Equilibrium.Cards
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Bullet Speed",
-                    amount = "+100%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
-                },
-                new CardInfoStat()
-                {
                     positive = false,
                     stat = "Damage",
-                    amount = "-80%",
+                    amount = "-70%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotLower
                 },
                 new CardInfoStat()
