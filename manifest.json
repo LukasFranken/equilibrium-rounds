@@ -1,10 +1,11 @@
 {
     "name": "Equilibrium",
-    "version_number": "0.0.4",
+    "version_number": "0.0.7",
     "website_url": "https://github.com/LukasFranken/equilibrium-rounds",
     "description": "Contains 5 Cards with a unique effect on gameplay. No boring stat shuffles.",
     "dependencies": [
         "willuwontu-BlockForcePatch-1.0.1",
-		"Root-GunBodyRecoilPatch-0.1.0"
+		"Root-GunBodyRecoilPatch-0.1.0",
+		"Pykess-CardChoiceSpawnUniqueCardPatch-0.1.10"
     ]
 }

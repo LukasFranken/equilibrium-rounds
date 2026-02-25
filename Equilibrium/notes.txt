@@ -1,0 +1,10 @@
+TODO
+
+- protos
+ -> gain points by taking damage
+ -> use to enhance cards in select
+ -> add and research manipulation of card selection
+
+- wraith class
+ -> can fly
+ -> slow homing projectiles

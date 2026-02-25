@@ -68,13 +68,6 @@ namespace Equilibrium.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Recoil",
-                    amount = "MASSIVE",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
                     stat = "Reload Speed",
                     amount = "-60%",
                     simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf

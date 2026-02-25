@@ -30,6 +30,7 @@ namespace Equilibrium.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            UnityEngine.Debug.Log("Removing Minigun");
             var mono = player.gameObject.GetComponent<AttackSpeedStackMono>();
             if (mono != null)
             {

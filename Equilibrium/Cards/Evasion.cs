@@ -35,7 +35,7 @@ namespace Equilibrium.Cards
         }
         protected override string GetDescription()
         {
-            return "Jump backwards and heal a bit when you block";
+            return "Jump back and heal on block";
         }
         protected override GameObject GetCardArt()
         {

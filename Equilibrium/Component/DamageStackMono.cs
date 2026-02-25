@@ -52,6 +52,12 @@ namespace Equilibrium.Component
         {
             incrementIncrement += 1f;
         }
+
+        void OnDestroy()
+        {
+            if (gun != null)
+                gun.ShootPojectileAction -= OnShoot;
+        }
     }
 
 }

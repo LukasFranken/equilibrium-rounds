@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Equilibrium.Component;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnboundLib.Cards;
@@ -10,25 +11,34 @@ namespace Equilibrium.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
+
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //Edits values on player when card is selected
+            var mono = player.gameObject.GetComponent<ProtosMono>();
+            if (mono == null)
+            {
+                mono = player.gameObject.AddComponent<ProtosMono>();
+            }
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //Run when the card is removed from the player
+            var mono = player.gameObject.GetComponent<ProtosMono>();
+            if (mono != null)
+            {
+                mono.Reset();
+                mono.enabled = false;
+                Destroy(mono);
+            }
         }
-
 
         protected override string GetTitle()
         {
-            return "CardName";
+            return "Protos";
         }
         protected override string GetDescription()
         {
-            return "CardDescription";
+            return "Collect gears to power up";
         }
         protected override GameObject GetCardArt()
         {
@@ -36,7 +46,7 @@ namespace Equilibrium.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -53,7 +63,7 @@ namespace Equilibrium.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.TechWhite;
         }
         public override string GetModName()
         {

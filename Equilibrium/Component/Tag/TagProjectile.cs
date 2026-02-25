@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Equilibrium.Component
+namespace Equilibrium.Component.Tag
 {
     class TagProjectile : MonoBehaviour
     {
@@ -26,7 +26,7 @@ namespace Equilibrium.Component
             if (health != null)
             {
                 Vector3 offset = new Vector3(hitInfo.point.x, hitInfo.point.y, health.transform.position.z) - health.transform.position;
-                owner?.SetTarget(health.transform, offset);
+                owner?.SetTag(health.transform, offset);
             }
             else
             {
@@ -35,7 +35,5 @@ namespace Equilibrium.Component
 
             Destroy(gameObject);
         }
-
-
     }
 }
