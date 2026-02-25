@@ -13,17 +13,10 @@ namespace Equilibrium.Component.Tag
 
         private bool spawnTagNextShot = false;
 
-        private TagMarker tagMarker;
+        private TagMarker tagMarker = new TagMarker();
 
         private float tagTeleportCooldownMultiplier = 0.2f;
         private float originalCooldown;
-
-        private int currentMapId;
-
-        public TagMono()
-        {
-            tagMarker = new TagMarker();
-        }
 
         void Start()
         {
@@ -31,6 +24,16 @@ namespace Equilibrium.Component.Tag
             block = GetComponent<Block>();
             block.BlockAction += OnBlock;
             StartCoroutine(WaitForGun());
+            GameModeManager.AddHook(GameModeHooks.HookBattleStart, OnBattleStart);
+        }
+
+        private IEnumerator OnBattleStart(IGameModeHandler gameMode)
+        {
+            if (tagMarker.HasObject())
+            {
+                tagMarker.Reset();
+            }
+            yield break;
         }
 
         IEnumerator WaitForGun()
@@ -97,24 +100,9 @@ namespace Equilibrium.Component.Tag
 
         void Update()
         {
-            CheckForReset();
             tagMarker.UpdatePosition();
         }
-
-        private void CheckForReset()
-        {
-            if (tagMarker != null)
-            {
-                if (MapManager.instance.currentLevelID != currentMapId)
-                {
-                    tagMarker.Reset();
-                    currentMapId = MapManager.instance.currentLevelID;
-                    return;
-                }
-            }
-            currentMapId = MapManager.instance.currentLevelID;
-        }
-
+        
         public void SetTag(Vector3 pos)
         {
             tagMarker.Create(pos);

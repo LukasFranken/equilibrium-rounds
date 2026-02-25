@@ -6,6 +6,8 @@
     "dependencies": [
         "willuwontu-BlockForcePatch-1.0.1",
 		"Root-GunBodyRecoilPatch-0.1.0",
-		"Pykess-CardChoiceSpawnUniqueCardPatch-0.1.10"
+		"Pykess-CardChoiceSpawnUniqueCardPatch-0.1.10",
+		"Pykess-Pick_N_Cards-0.2.6",
+		"Pykess-PCE-2.7.11"
     ]
 }
