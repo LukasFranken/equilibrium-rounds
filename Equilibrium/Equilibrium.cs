@@ -2,7 +2,6 @@
 using UnboundLib.Cards;
 using Equilibrium.Cards;
 using HarmonyLib;
-using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using BepInEx;
 
 
@@ -35,7 +34,10 @@ namespace Equilibrium
             CustomCard.BuildCard<Metamorphosis>();
             CustomCard.BuildCard<Minigun>();
             CustomCard.BuildCard<Tag>();
-            //CustomCard.BuildCard<Protos>();
+            CustomCard.BuildCard<Protos>();
+            CustomCard.BuildCard<ProtosDamage>();
+            CustomCard.BuildCard<ProtosProjectileSpeed>();
+            CustomCard.BuildCard<ProtosHealth>();
         }
     }
 }

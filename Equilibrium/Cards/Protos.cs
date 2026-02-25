@@ -1,7 +1,5 @@
-﻿using Equilibrium.Component;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using Equilibrium.Component;
 using UnboundLib.Cards;
 using UnityEngine;
 
@@ -9,10 +7,13 @@ namespace Equilibrium.Cards
 {
     class Protos : CustomCard
     {
+        public static readonly CardCategory ProtosUpgradeCategory = CustomCardCategories.instance.CardCategory("EQ_PROTOS_UPGRADE");
+
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-
+            cardInfo.allowMultiple = false;
         }
+
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             var mono = player.gameObject.GetComponent<ProtosMono>();
@@ -20,7 +21,10 @@ namespace Equilibrium.Cards
             {
                 mono = player.gameObject.AddComponent<ProtosMono>();
             }
+
+            mono.Initialize();
         }
+
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             var mono = player.gameObject.GetComponent<ProtosMono>();
@@ -36,18 +40,22 @@ namespace Equilibrium.Cards
         {
             return "Protos";
         }
+
         protected override string GetDescription()
         {
-            return "Collect gears to power up";
+            return "Only Protos upgrades appear for you from now on";
         }
+
         protected override GameObject GetCardArt()
         {
             return null;
         }
+
         protected override CardInfo.Rarity GetRarity()
         {
             return CardInfo.Rarity.Rare;
         }
+
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
@@ -55,16 +63,25 @@ namespace Equilibrium.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Effect",
-                    amount = "No",
+                    stat = "Card Choices",
+                    amount = "Only Protos",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Per Round",
+                    amount = "+10% damage / speed / health",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
+
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
             return CardThemeColor.CardThemeColorType.TechWhite;
         }
+
         public override string GetModName()
         {
             return Equilibrium.ModInitials;
