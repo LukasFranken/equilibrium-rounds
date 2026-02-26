@@ -1,5 +1,11 @@
 ### v0.0.8 (latest) Protos
 * Protos (NEW CARD)
+	* Gain 30% of the damage you take back as max health (across rounds, like metamorphosis)
+* Evasion
+	* Card Color: DefensiveBlue -> TechWhite
+* Tag
+	* Card Color: EvilPurple -> MagicPink
+* Dependencies adjusted (more patches to improve performance)
 
 ### v0.0.7 Tag rework
 * Tag

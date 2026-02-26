@@ -15,6 +15,7 @@ namespace Equilibrium.Cards
         {
             
         }
+
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             var mono = player.gameObject.GetComponent<DamageStackMono>();
@@ -24,6 +25,7 @@ namespace Equilibrium.Cards
             }
             mono.AddIncrement();
         }
+
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             var mono = player.gameObject.GetComponent<DamageStackMono>();
@@ -33,7 +35,6 @@ namespace Equilibrium.Cards
                 Destroy(mono);
             }
         }
-
 
         protected override string GetTitle()
         {

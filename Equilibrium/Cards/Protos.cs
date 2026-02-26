@@ -7,30 +7,26 @@ namespace Equilibrium.Cards
 {
     class Protos : CustomCard
     {
-        public static readonly CardCategory ProtosUpgradeCategory = CustomCardCategories.instance.CardCategory("EQ_PROTOS_UPGRADE");
-
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
+            
         }
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetComponent<ProtosMono>();
+            var mono = player.gameObject.GetComponent<HealthStackMono>();
             if (mono == null)
             {
-                mono = player.gameObject.AddComponent<ProtosMono>();
+                mono = player.gameObject.AddComponent<HealthStackMono>();
             }
-
-            mono.Initialize();
+            mono.AddIncrement();
         }
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetComponent<ProtosMono>();
+            var mono = player.gameObject.GetComponent<HealthStackMono>();
             if (mono != null)
             {
-                mono.Reset();
                 mono.enabled = false;
                 Destroy(mono);
             }
@@ -43,7 +39,7 @@ namespace Equilibrium.Cards
 
         protected override string GetDescription()
         {
-            return "Only Protos upgrades appear for you from now on";
+            return "Convert damage to max health";
         }
 
         protected override GameObject GetCardArt()
@@ -63,23 +59,16 @@ namespace Equilibrium.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Card Choices",
-                    amount = "Only Protos",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Per Round",
-                    amount = "+10% damage / speed / health",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    stat = "Conversion",
+                    amount = "+25%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };
         }
 
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.DefensiveBlue;
         }
 
         public override string GetModName()

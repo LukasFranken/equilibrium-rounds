@@ -3,6 +3,9 @@ using UnboundLib.Cards;
 using Equilibrium.Cards;
 using HarmonyLib;
 using BepInEx;
+using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using System.Dynamic;
+using UnboundLib.Utils;
 
 
 namespace Equilibrium
@@ -35,9 +38,6 @@ namespace Equilibrium
             CustomCard.BuildCard<Minigun>();
             CustomCard.BuildCard<Tag>();
             CustomCard.BuildCard<Protos>();
-            CustomCard.BuildCard<ProtosDamage>();
-            CustomCard.BuildCard<ProtosProjectileSpeed>();
-            CustomCard.BuildCard<ProtosHealth>();
         }
     }
 }

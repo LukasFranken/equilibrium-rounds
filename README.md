@@ -5,7 +5,7 @@ Even though the cards should be relatively bug free,
 they lack an image and proper balancing.
 
 ## Current State
-### Cards (5)
+### Cards (6)
 #### Tag
 > Block to shoot a Tag-Projectile. Once the tag has hit an object (player or environment), block again to teleport to the tag. NOTE: Teleport can be blocked by obstacles.
 >
@@ -19,11 +19,13 @@ they lack an image and proper balancing.
 > Shooting launches you back a LOT! Picking this card sets your current max ammo to 1. This can be increased afterwards, but do so at your own risk, because the knockback is tough. The shot is very powerful.
 >
 #### Metamorphosis
-> your damage is set to a small amount (around 20-30%). Every bullet you fire, however, permanently increases the damage of the next one by a bit (like 3%). NOTE: This damage increase is reset when the game is over and therfor lasts across rounds!
+> Your damage is set to a small amount (around 20-30%). Every bullet you fire, however, permanently increases the damage of the next one by a bit (like 3%). NOTE: This damage increase is reset when the game is over and therfor lasts across rounds!
+>
+#### Protos
+> Taking damage increases your max health. Note: This effect lasts until the end of the match, like Metamorphosis!
 >
 
 ## In Active Development
-- Protos Card
 
 ## Roadmap
 (under construction)
