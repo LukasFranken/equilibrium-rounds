@@ -22,16 +22,8 @@ namespace Equilibrium.Component.Tag
             if (triggered) return;
             triggered = true;
 
-            var health = hitInfo.transform?.GetComponent<HealthHandler>();
-            if (health != null)
-            {
-                Vector3 offset = new Vector3(hitInfo.point.x, hitInfo.point.y, health.transform.position.z) - health.transform.position;
-                owner?.SetTag(health.transform, offset);
-            }
-            else
-            {
-                owner?.SetTag(hitInfo.point);
-            }
+            Vector3 offset = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.transform.position.z) - hitInfo.transform.position;
+            owner?.SetTag(hitInfo.transform, offset);
 
             Destroy(gameObject);
         }

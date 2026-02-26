@@ -19,7 +19,7 @@ namespace Equilibrium
     {
         private const string ModId = "de.instinct.equilibrium";
         private const string ModName = "Equilibrium";
-        public const string Version = "0.0.8";
+        public const string Version = "0.1.0";
 
         public const string ModInitials = "EQ";
         public static Equilibrium instance { get; private set; }
@@ -38,6 +38,7 @@ namespace Equilibrium
             CustomCard.BuildCard<Minigun>();
             CustomCard.BuildCard<Tag>();
             CustomCard.BuildCard<Protos>();
+            CustomCard.BuildCard<Sacrifice>();
         }
     }
 }

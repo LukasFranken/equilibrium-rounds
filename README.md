@@ -5,7 +5,7 @@ Even though the cards should be relatively bug free,
 they lack an image and proper balancing.
 
 ## Current State
-### Cards (6)
+### Cards (7)
 #### Tag
 > Block to shoot a Tag-Projectile. Once the tag has hit an object (player or environment), block again to teleport to the tag. NOTE: Teleport can be blocked by obstacles.
 >
@@ -24,8 +24,12 @@ they lack an image and proper balancing.
 #### Protos
 > Taking damage increases your max health. Note: This effect lasts until the end of the match, like Metamorphosis!
 >
+#### Sacrifice
+> Block to lose 50% of your current HP. Each point of HP lost increases the next shots damage and speed. It also ignores walls.
+>
 
 ## In Active Development
+(I need a break from this spaghetti a*s code)
 
 ## Roadmap
 (under construction)

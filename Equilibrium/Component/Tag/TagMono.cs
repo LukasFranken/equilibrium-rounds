@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photon.Pun.Simple;
+using System;
 using System.Collections;
 using UnboundLib.GameModes;
 using UnityEngine;
@@ -24,10 +25,10 @@ namespace Equilibrium.Component.Tag
             block = GetComponent<Block>();
             block.BlockAction += OnBlock;
             StartCoroutine(WaitForGun());
-            GameModeManager.AddHook(GameModeHooks.HookBattleStart, OnBattleStart);
+            GameModeManager.AddHook(GameModeHooks.HookPointEnd, OnPointEnd);
         }
 
-        private IEnumerator OnBattleStart(IGameModeHandler gameMode)
+        private IEnumerator OnPointEnd(IGameModeHandler gameMode)
         {
             if (tagMarker.HasObject())
             {
@@ -69,7 +70,7 @@ namespace Equilibrium.Component.Tag
                 }
             }
         }
-
+        
         private void OnBulletSpawned(GameObject bullet)
         {
             if (!spawnTagNextShot) return;
@@ -77,7 +78,6 @@ namespace Equilibrium.Component.Tag
 
             TagProjectile tagProjectile = bullet.AddComponent<TagProjectile>();
             tagProjectile.owner = this;
-
             MakeBulletRed(bullet);
         }
 

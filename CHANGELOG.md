@@ -1,4 +1,10 @@
-### v0.0.8 (latest) Protos
+### v0.1.0 Sacrifice (latest)
+* Sacrifice
+	* Block to lose 50% of your current HP. Each point of HP lost increases the next shots damage and speed. It also ignores walls.
+* Small code optimizations
+* Removed unnessecary dependencies
+
+### v0.0.8 Protos
 * Protos (NEW CARD)
 	* Gain 30% of the damage you take back as max health (across rounds, like metamorphosis)
 * Evasion
