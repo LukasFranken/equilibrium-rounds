@@ -4,8 +4,8 @@ namespace Equilibrium.Component.Tag
 {
     class TagProjectile : MonoBehaviour
     {
-        public TagMono owner;
-        private ProjectileHit hit;
+        public TagMono? owner;
+        private ProjectileHit? hit;
         private bool triggered = false;
 
         void Start()

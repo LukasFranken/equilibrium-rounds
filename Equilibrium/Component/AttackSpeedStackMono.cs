@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Equilibrium.Component
 {
     class AttackSpeedStackMono : MonoBehaviour
     {
-        public CharacterData data;
-        public Gun gun;
+        public CharacterData? data;
+        public Gun? gun;
 
         public float baseValue = 0.25f;
         public float increment = 0.01f;
@@ -26,7 +23,7 @@ namespace Equilibrium.Component
 
         private IEnumerator WaitForGun()
         {
-            while (data.weaponHandler == null || data.weaponHandler.gun == null)
+            while (data == null || data.weaponHandler == null || data.weaponHandler.gun == null)
                 yield return null;
 
             gun = data.weaponHandler.gun;
@@ -36,12 +33,16 @@ namespace Equilibrium.Component
 
         private void OnShoot(GameObject bullet)
         {
+            if (gun == null) return;
             currentReduction += (increment * incrementIncrement);
             gun.attackSpeed = Mathf.Clamp(baseValue - currentReduction, baseValue - maxReduction, baseValue);
         }
 
         public void Update()
         {
+            if (gun == null) return;
+            if (data == null) return;
+
             if (!data.playerActions.Fire.IsPressed || gun.isReloading)
             {
                 if (currentReduction > 0f)

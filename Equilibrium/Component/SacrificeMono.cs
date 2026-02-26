@@ -1,21 +1,20 @@
-﻿using Equilibrium.Component.Tag;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using UnboundLib.GameModes;
 using UnityEngine;
+using UnityEngine.Profiling.Memory.Experimental;
 
 namespace Equilibrium.Component
 {
     class SacrificeMono : MonoBehaviour
     {
-        public CharacterData data;
-        public Gun gun;
-        public Block block;
+        public CharacterData? data;
+        public Gun? gun;
+        public Block? block;
 
         private float storedHealthSacrifice;
         private float increment;
 
-        private float hpToDamageFactor = 0.3f;
+        private float hpToDamageFactor = 0.2f;
         private float hpToProjectileSpeedFactor = 0.02f;
 
         void Start()
@@ -35,7 +34,7 @@ namespace Equilibrium.Component
 
         private IEnumerator WaitForGun()
         {
-            while (data.weaponHandler == null || data.weaponHandler.gun == null)
+            while (data == null || data.weaponHandler == null || data.weaponHandler.gun == null)
                 yield return null;
 
             gun = data.weaponHandler.gun;
@@ -44,6 +43,7 @@ namespace Equilibrium.Component
 
         void Update()
         {
+            if (gun == null) return;
             if (storedHealthSacrifice > 0f)
             {
                 gun.ignoreWalls = true;
@@ -58,9 +58,9 @@ namespace Equilibrium.Component
 
         private void OnBlock(BlockTrigger.BlockTriggerType trigger)
         {
+            if (data == null) return;
             float dmgToTake = data.health * 0.5f;
             data.healthHandler.RPCA_SendTakeDamage(new Vector2(dmgToTake, 0f), data.healthHandler.transform.position);
-
             storedHealthSacrifice += dmgToTake;
         }
 

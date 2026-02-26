@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Equilibrium.Component
 {
     public class HealthStackMono : MonoBehaviour
     {
-        public CharacterData data;
-        public HealthHandler health;
+        public CharacterData? data;
+        public HealthHandler? health;
 
         public float baseFactor = 0.25f;
         public float increment = 0f;
@@ -27,7 +24,7 @@ namespace Equilibrium.Component
 
         private IEnumerator WaitForHealth()
         {
-            while (data.healthHandler == null)
+            while (data == null || data.healthHandler == null)
                 yield return null;
 
             health = data.healthHandler;
@@ -36,6 +33,8 @@ namespace Equilibrium.Component
         void Update()
         {
             if (health == null) return;
+            if (data == null) return;
+
             if (data.health != lastHealth)
             {
                 if (data.health < lastHealth)
@@ -48,6 +47,7 @@ namespace Equilibrium.Component
 
         private void OnDamageTaken(float damage)
         {
+            if (data == null) return;
             data.maxHealth += baseFactor * increment * damage;
         }
 

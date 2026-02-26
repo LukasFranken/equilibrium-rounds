@@ -1,5 +1,4 @@
-﻿using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using Equilibrium.Component;
+﻿using Equilibrium.Component;
 using UnboundLib.Cards;
 using UnityEngine;
 

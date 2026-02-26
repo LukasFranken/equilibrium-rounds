@@ -1,6 +1,6 @@
 {
     "name": "Equilibrium",
-    "version_number": "0.1.0",
+    "version_number": "0.1.1",
     "website_url": "https://github.com/LukasFranken/equilibrium-rounds",
     "description": "Contains 7 Cards with a unique effect on gameplay. No boring stat shuffles.",
     "dependencies": [

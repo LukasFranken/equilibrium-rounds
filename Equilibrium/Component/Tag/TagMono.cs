@@ -1,6 +1,4 @@
-﻿using Photon.Pun.Simple;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using UnboundLib.GameModes;
 using UnityEngine;
 
@@ -8,9 +6,9 @@ namespace Equilibrium.Component.Tag
 {
     class TagMono : MonoBehaviour
     {
-        private CharacterData data;
-        private Block block;
-        private Gun gun;
+        private CharacterData? data;
+        private Block? block;
+        private Gun? gun;
 
         private bool spawnTagNextShot = false;
 
@@ -39,7 +37,7 @@ namespace Equilibrium.Component.Tag
 
         IEnumerator WaitForGun()
         {
-            while (data.weaponHandler == null || data.weaponHandler.gun == null)
+            while (data == null || data.weaponHandler == null || data.weaponHandler.gun == null)
                 yield return null;
 
             gun = data.weaponHandler.gun;
@@ -49,6 +47,7 @@ namespace Equilibrium.Component.Tag
         private void OnBlock(BlockTrigger.BlockTriggerType trigger)
         {
             if (gun == null) return;
+            if (block == null) return;
 
             if (tagMarker.HasObject())
             {
@@ -115,6 +114,7 @@ namespace Equilibrium.Component.Tag
 
         public void Teleport()
         {
+            if (data == null) return;
             data.transform.position = tagMarker.GetPosition();
             tagMarker.Reset();
         }

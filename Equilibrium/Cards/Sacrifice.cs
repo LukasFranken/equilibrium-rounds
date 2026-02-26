@@ -1,8 +1,4 @@
 ﻿using Equilibrium.Component;
-using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnboundLib.Cards;
 using UnityEngine;
 
@@ -48,7 +44,7 @@ namespace Equilibrium.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -64,7 +60,7 @@ namespace Equilibrium.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "+30%",
+                    stat = "+20%",
                     amount = "HP to Damage",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },

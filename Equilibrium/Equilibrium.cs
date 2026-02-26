@@ -1,11 +1,7 @@
-﻿using UnboundLib;
-using UnboundLib.Cards;
+﻿using UnboundLib.Cards;
 using Equilibrium.Cards;
 using HarmonyLib;
 using BepInEx;
-using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using System.Dynamic;
-using UnboundLib.Utils;
 
 
 namespace Equilibrium
@@ -19,10 +15,10 @@ namespace Equilibrium
     {
         private const string ModId = "de.instinct.equilibrium";
         private const string ModName = "Equilibrium";
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
 
         public const string ModInitials = "EQ";
-        public static Equilibrium instance { get; private set; }
+        public static Equilibrium? instance { get; private set; }
 
         void Awake()
         {

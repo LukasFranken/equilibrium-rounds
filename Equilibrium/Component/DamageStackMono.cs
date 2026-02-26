@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Equilibrium.Component
 {
     public class DamageStackMono : MonoBehaviour
     {
-        public CharacterData data;
-        public Gun gun;
+        public CharacterData? data;
+        public Gun? gun;
 
         public float baseMultiplier = 0.2f;
         public float increment = 0.03f;
@@ -28,7 +24,7 @@ namespace Equilibrium.Component
 
         private IEnumerator WaitForGun()
         {
-            while (data.weaponHandler == null || data.weaponHandler.gun == null)
+            while (data == null || data.weaponHandler == null || data.weaponHandler.gun == null)
                 yield return null;
 
             gun = data.weaponHandler.gun;

@@ -1,14 +1,5 @@
-﻿using Photon.Pun.Simple;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnboundLib;
-using UnboundLib.Cards;
+﻿using UnboundLib.Cards;
 using UnityEngine;
-using static CardInfoStat;
-using static UnityEngine.Random;
 
 
 namespace Equilibrium.Cards

@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace Equilibrium.Component.Tag
 {
     class TagMarker : MonoBehaviour
     {
-        private GameObject tagMarkerObject;
+        private GameObject? tagMarkerObject;
 
         private TagType tagType;
         private Vector3 storedPosition;
-        private Transform target = null;
+        private Transform? target;
         private Vector3 targetOffset;
 
         public void Create(Vector3 pos)

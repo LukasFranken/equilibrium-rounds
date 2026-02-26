@@ -1,4 +1,10 @@
-### v0.1.0 Sacrifice (latest)
+### v0.1.1 (latest) Cleanup
+* A bunch of code cleanup and optimization
+* Sacrifice
+	* rarity: common -> rare (fix)
+	* hp to dmg conversion: 30% -> 20%
+
+### v0.1.0 Sacrifice
 * Sacrifice
 	* Block to lose 50% of your current HP. Each point of HP lost increases the next shots damage and speed. It also ignores walls.
 * Small code optimizations
