@@ -1,8 +1,8 @@
 {
     "name": "Equilibrium",
-    "version_number": "0.1.1",
+    "version_number": "0.1.2",
     "website_url": "https://github.com/LukasFranken/equilibrium-rounds",
-    "description": "Contains 7 Cards with a unique effect on gameplay. No boring stat shuffles.",
+    "description": "Contains 8 Cards with a unique effect on gameplay. No boring stat shuffles.",
     "dependencies": [
         "RoundsModding-AllThePatch-1.0.0",
 		"Root-GunBodyRecoilPatch-0.1.0"

@@ -15,7 +15,7 @@ namespace Equilibrium
     {
         private const string ModId = "de.instinct.equilibrium";
         private const string ModName = "Equilibrium";
-        public const string Version = "0.1.1";
+        public const string Version = "0.1.2";
 
         public const string ModInitials = "EQ";
         public static Equilibrium? instance { get; private set; }
@@ -35,6 +35,7 @@ namespace Equilibrium
             CustomCard.BuildCard<Tag>();
             CustomCard.BuildCard<Protos>();
             CustomCard.BuildCard<Sacrifice>();
+            CustomCard.BuildCard<Eclipse>();
         }
     }
 }

@@ -1,4 +1,9 @@
-### v0.1.1 (latest) Cleanup
+### v0.1.2 (latest) Eclipse
+* Eclipse added
+	* more bullet damage, slower bullet speed and less gravity
+	* not the most exciting card effect, but has a lot of synergy with other cards, especially slowing down the bullet is unique.
+
+### v0.1.1 Cleanup
 * A bunch of code cleanup and optimization
 * Sacrifice
 	* rarity: common -> rare (fix)
