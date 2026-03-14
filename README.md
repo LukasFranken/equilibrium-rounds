@@ -5,7 +5,7 @@ Even though the cards should be relatively bug free,
 they lack an image and proper balancing.
 
 ## Current State
-### Cards (7)
+### Cards (8)
 #### Tag
 > Block to shoot a Tag-Projectile. Once the tag has hit an object (player or environment), block again to teleport to the tag. NOTE: Teleport can be blocked by obstacles.
 >
@@ -26,6 +26,9 @@ they lack an image and proper balancing.
 >
 #### Sacrifice
 > Block to lose 50% of your current HP. Each point of HP lost increases the next shots damage and speed. It also ignores walls.
+>
+#### Eclipse
+> Double bullet damage, lower bullet speed and gravity. By itself not the most exciting unique effect, but is very synergetic with other cards.
 >
 
 ## In Active Development
